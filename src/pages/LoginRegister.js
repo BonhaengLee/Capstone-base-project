@@ -63,7 +63,7 @@ export default function Login() {
 
   return (
     // <div className="w-100" style={{ maxWidth: "400px" }}>
-    <div className="login-register-area pt-100 pb-100">
+    <div className="login-register-area pt-100 pb-100" style={{ marginTop: "220px"}}>
       {error && (
         <section>
           <p>Error</p>

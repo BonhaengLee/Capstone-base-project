@@ -13,6 +13,7 @@ import theme from "../theme/theme";
 import LaunchIcon from "@material-ui/icons/Launch";
 import { useHistory } from "react-router-dom";
 import SearchBar from "../components/SearchBar";
+import styled from "styled-components";
 
 export default function HomePage() {
   const [jobs, setJobs] = useState([]);

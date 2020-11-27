@@ -1,5 +1,7 @@
-## 아주대학교 다학제 캡스톤 디자인 
+## 아주대학교 다학제 캡스톤 디자인
+
 ## 설계실요정팀
+
 ## 재능교환 웹사이트
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -65,3 +67,7 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 ### `yarn build` fails to minify
 
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+### minjeong
+
+Test Readme

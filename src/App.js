@@ -5,6 +5,8 @@ import PrivateRoute from "./auth/PrivateRoute";
 import { CircularProgress } from "@material-ui/core";
 import Nav from "./components/Header/Nav";
 import "./styles.css";
+import styled from "styled-components";
+
 
 const UpdateProfilePage = lazy(() => import("./pages/UpdateProfile.page"));
 const ForgotPasswordPage = lazy(() => import("./pages/ForgotPassword.page"));
@@ -19,6 +21,7 @@ const Chat = lazy(() => import("./pages/Chat"));
 
 function App(props) {
   return (
+    <Container>
     <div style={{ flex: 1, flexDirection: "flex-start" }}>
       <Suspense
         fallback={
@@ -50,7 +53,17 @@ function App(props) {
         </div>
       </Suspense>
     </div>
+    </Container>
   );
 }
+const Container = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200%;
+  background:url(https://ifh.cc/g/n77edK.jpg/1029x4000);
+  background-size: cover;
+`;
 
 export default App;

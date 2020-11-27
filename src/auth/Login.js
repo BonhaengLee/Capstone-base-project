@@ -30,13 +30,19 @@ export default function Login() {
   }
   return (
     <div className="w-100" style={{ maxWidth: "400px" }}>
+
+
       <>
-        <Card>
-          <CardContent style={{ flexDirection: "flex-start" }}>
+        <Card
+        style={{marginTop: "400px" }}
+        
+        >
+        
+          <CardContent style={{ flexDirection: "flex-start", }}>
             {error && (
               <section>
-                <p>Error</p>
-                This is an error alert — <strong>{error}</strong>
+                <p>에러</p>
+                로그인 실패— <strong>{error}</strong>
               </section>
             )}
             <form onSubmit={handleSubmit}>
