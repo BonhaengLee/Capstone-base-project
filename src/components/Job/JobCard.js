@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Grid, Typography, makeStyles } from "@material-ui/core";
 import defaultImage from "../../assets/sampleImage.PNG";
+import { Col, Row, Container } from "react-bootstrap";
 
 export default (props) => {
   const classes = useStyles();
@@ -39,50 +40,76 @@ export default (props) => {
       style={{ backgroundColor: "#fff", borderRadius: "20" }}
       onClick={props.open}
     >
-      {/* <Grid container alignItems="center"> */}
       <Grid container>
         <Grid item container fullWidth>
           <img
-            src={
-              props.imageUrl !== null ? props.imageUrl : defaultImage
-              // props.imageUrl
-
-              // defaultImage
-              // props.job.imageUrl === undefined || props.job.imageUrl === null
-              //   ? defaultImage
-              //   : props.job.imageUrl
-            }
+            src={props.imageUrl !== null ? props.imageUrl : defaultImage}
             height="200px"
             width="355px"
             alt="testA"
             style={{ borderRadius: 10 }}
           ></img>
         </Grid>
-        <Grid
-          item
-          container
-          fullWidth
-          style={{ marginTop: "10px", alignItem: "center", marginleft: "1px" }}
-        >
-          <Typography className={classes.locationName} variant="subtitle2">
-            {props.location}
-          </Typography>
-          <Typography variant="subtitle1" style={{ marginTop: "2px" }}>
-            &nbsp;&nbsp;{props.title}
-          </Typography>
-        </Grid>
-        <Grid
-          item
-          container
-          fullWidth
-          style={{ marginTop: "10px", marginLeft: "-4px" }}
-        >
-          {props.skills.map((skill) => (
-            <Grid key={skill} className={classes.skillChip} item>
-              {skill}
-            </Grid>
-          ))}
-        </Grid>
+
+        <Container style={{ marginLeft: "-10px" }}>
+          <Row>
+            <Col xs="3">
+              <Grid
+                item
+                container
+                fullWidth
+                style={{
+                  marginTop: "10px",
+                }}
+              >
+                <img
+                  src={
+                    props.userPhoto !== null ? props.userPhoto : defaultImage
+                  }
+                  height="85px"
+                  width="85px"
+                  alt="testA"
+                  style={{ borderRadius: 100 }}
+                ></img>
+              </Grid>
+            </Col>
+            <Col xs="9">
+              <Grid
+                item
+                container
+                fullWidth
+                style={{
+                  marginTop: "10px",
+                  alignItem: "center",
+                  marginleft: "1px",
+                }}
+              >
+                <Typography
+                  className={classes.locationName}
+                  variant="subtitle2"
+                >
+                  {props.location}
+                </Typography>
+                <Typography variant="subtitle1" style={{ marginTop: "2px" }}>
+                  &nbsp;&nbsp;{props.title}
+                </Typography>
+              </Grid>
+              <Grid
+                item
+                container
+                fullWidth
+                style={{ marginTop: "10px", marginLeft: "-4px" }}
+              >
+                {props.skills.map((skill) => (
+                  <Grid key={skill} className={classes.skillChip} item>
+                    {skill}
+                  </Grid>
+                ))}
+              </Grid>
+            </Col>
+          </Row>
+        </Container>
+
         <Grid item container fullWidth style={{ marginTop: "10px" }}>
           <Grid item>
             <Typography variant="captain">
