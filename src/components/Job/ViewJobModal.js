@@ -218,67 +218,60 @@ export default (props) => {
             </Typography>
           </Box>
 
-          <Box className={classes.info} display="flex">
-            <Grid item container fullWidth>
-              <img
-                src={
-                  props.job.imageUrl !== null
-                    ? props.job.imageUrl
-                    : defaultImage
-                }
-                height="180px"
-                width="290px"
-                alt="projectImage"
-                style={{
-                  borderRadius: 10,
-                  marginTop: "10px",
-                  marginLeft: "10px",
-                }}
-              />
-            </Grid>
-            <Typography
-              variant="body2"
-              style={{
-                marginTop: "80px",
-                marginLeft: "-200px",
-                fontFamily: "AppleSDGothicNeoEB.ttf",
-              }}
-            >
-              <Typography
-                variant="body2"
-                style={{
-                  marginTop: "-70px",
-                  marginBottom: "40px",
-                  fontSize: "18px",
-                  fontFamily: "AppleSDGothicNeoEB.ttf",
-                  fontWeight: "bold",
-                }}
-              >
-                [{props.job.location}]{props.job.title}
-              </Typography>
-
-              <Grid
-                className={classes.openRewardButton}
-                style={{ backgroundColor: "#B9ACE0" }}
-              >
-                {props.job.reward}
-              </Grid>
-              <Box style={{}}>
-                <DialogActions>
-                  {loading ? (
-                    <CircularProgress color="secondary" size={22} />
-                  ) : (
-                    props.job.userId !== currentUser.email && (
+          <Container>
+            <Row>
+              <Col xs="7">
+                <img
+                  src={
+                    props.job.imageUrl !== null
+                      ? props.job.imageUrl
+                      : defaultImage
+                  }
+                  height="180px"
+                  width="290px"
+                  alt="projectImage"
+                  style={{
+                    borderRadius: 10,
+                  }}
+                />
+              </Col>
+              <Col xs="5">
+                <Row>
+                  <Col style={{ height: "55px" }}>
+                    <Typography
+                      variant="body2"
+                      style={{
+                        fontSize: "18px",
+                        fontFamily: "AppleSDGothicNeoEB.ttf",
+                        fontWeight: "bold",
+                      }}
+                    >
+                      [{props.job.location}]{props.job.title}
+                    </Typography>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col style={{ height: "65px" }}>
+                    <Grid
+                      className={classes.openRewardButton}
+                      style={{ backgroundColor: "#B9ACE0" }}
+                    >
+                      {props.job.reward}
+                    </Grid>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col
+                    style={{
+                      height: "50px",
+                      marginTop: "10px",
+                    }}
+                  >
+                    {props.job.userId !== currentUser.email && (
                       <Button
-                        variant="contained"
-                        className={classes.openMessageButton}
-                        disableElevation
                         disabled={loading}
                         style={{
-                          marginTop: "10px",
-                          marginLeft: "-20px",
                           width: "150px",
-                          height: "30px",
                           backgroundColor: "#B9ACE0",
                           fontColor: "#fff",
                         }}
@@ -289,12 +282,23 @@ export default (props) => {
                         >
                           쪽지 보내기
                         </Button>
-                        {/* <MessageIcon /> */}
                       </Button>
-                    )
-                  )}
-                </DialogActions>
-              </Box>
+                    )}
+                  </Col>
+                </Row>
+              </Col>
+            </Row>
+          </Container>
+          <Box className={classes.info} display="flex">
+            <Typography
+              variant="body2"
+              style={{
+                marginTop: "80px",
+                marginLeft: "-200px",
+                fontFamily: "AppleSDGothicNeoEB.ttf",
+              }}
+            >
+              <Box style={{}}></Box>
             </Typography>
           </Box>
 
@@ -525,9 +529,6 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 600,
     color: "#fff",
     backgroundColor: theme.palette.mainColor.main,
-  },
-  openMessageButton: {
-    backgroundColor: "#B9ACE0",
   },
   openRewardButton: {
     fontSize: "14.5px",
