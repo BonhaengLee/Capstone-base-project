@@ -3,7 +3,7 @@
 
 :root {
   --body-bg: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-  /* --light-bg-img: url('../src/bg.svg'); */
+  --light-bg-img: url("../src/bg.PNG");
   --dark-bg-img: url("../src/darkbg.svg");
   --border: 2px solid #ddd;
   --primary-bg: #ffffff;

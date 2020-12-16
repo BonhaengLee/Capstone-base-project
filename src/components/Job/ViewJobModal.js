@@ -210,8 +210,6 @@ export default (props) => {
       } catch (err) {
         console.log("error in review");
       }
-      // setCal(scores["0"].st);
-      // getPorts();
     })();
   }, []);
 
