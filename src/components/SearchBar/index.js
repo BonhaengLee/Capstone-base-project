@@ -78,7 +78,7 @@ export default (props) => {
       <>
         <FormControl
           className={classes.formControl}
-          style={{ borderBottom: "5px solid #8C76CC" }}
+          style={{ borderBottom: "2px solid #F9D598" }}
         >
           <InputLabel shrink htmlFor="location-native-label-placeholder">
             지역
@@ -99,7 +99,7 @@ export default (props) => {
         </FormControl>
         <FormControl
           className={classes.formControl}
-          style={{ borderBottom: "2px solid #8C76CC" }}
+          style={{ borderBottom: "2px solid #F9D598" }}
         >
           <InputLabel shrink htmlFor="reward-native-label-placeholder">
             대가 설정
@@ -120,7 +120,7 @@ export default (props) => {
         </FormControl>
         <FormControl
           className={classes.formControl}
-          style={{ borderBottom: "2px solid #8C76CC" }}
+          style={{ borderBottom: "2px solid #F9D598" }}
         >
           <InputLabel shrink htmlFor="reward-native-label-placeholder">
             할 일
@@ -141,7 +141,7 @@ export default (props) => {
         </FormControl>
         <FormControl
           className={classes.formControl}
-          style={{ borderBottom: "2px solid #8C76CC" }}
+          style={{ borderBottom: "2px solid #F9D598" }}
         >
           <InputLabel shrink htmlFor="reward-native-label-placeholder">
             성별
@@ -164,18 +164,19 @@ export default (props) => {
 
       <FormControl
         className={classes.formControl}
-        style={{ borderBottom: "2px solid #8C76CC" }}
+        style={{ borderBottom: "2px solid #F9D598" }}
       >
         <InputLabel shrink htmlFor="search-native-label-placeholder">
           검색어
         </InputLabel>
         <TextField
           InputProps={{
+            disableUnderline: true,
             endAdornment: (
               <InputAdornment position="end">
-                <SvgIcon color="primary">
+                <SvgIcon>
                   <path
-                    fill="currentColor"
+                    fill="#F9D598"
                     d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z"
                   />
                 </SvgIcon>
@@ -184,6 +185,7 @@ export default (props) => {
           }}
           name="title"
           disableUnderline
+          underline="none"
           onChange={handleChange}
           style={{ marginTop: "15px" }}
           onKeyPress={onKeyPress}

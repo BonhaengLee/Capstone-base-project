@@ -2,13 +2,28 @@ import { Box, Button, Grid, makeStyles } from "@material-ui/core";
 import React from "react";
 import { Col, Row, Container } from "react-bootstrap";
 import clickImage from "../../assets/click.png";
+import mainImage from "../../assets/mainImage.png";
 
 export default (props) => {
   const classes = useStyles();
   return (
-    <Box pt={10} pb={10} bgcolor="transparent">
+    <Box pt={20} pb={10} bgcolor="transparent">
+      <img
+        src={mainImage}
+        style={{
+          marginTop: "400px",
+          position: "relative",
+          display: "block",
+          marginLeft: "auto",
+          marginRight: "auto",
+          width: "620px",
+          height: "250px",
+          backgroundColor: "transparent",
+          margin: "auto",
+        }}
+      />
       <Container
-        style={{ marginTop: "100px" }} // 1150px
+        style={{ marginTop: "10px" }} // 1150px
       >
         <Row>
           <Col xs="4"></Col>
@@ -19,7 +34,13 @@ export default (props) => {
                 src={clickImage}
                 alt="my image"
                 onClick={props.openNewJobModal}
-                style={{ width: "110px", height: "100px" }}
+                style={{
+                  marginTop: "-100px",
+                  marginLeft: "-130px",
+                  width: "100px",
+                  height: "130px",
+                  backgroundColor: "transparent",
+                }}
               />
             </button>
           </Col>
@@ -33,8 +54,8 @@ const useStyles = makeStyles((theme) => ({
   openJobButton: {
     height: "50px",
     width: "95px",
-    backgroundColor: "#e1bee7",
-    marginTop: "100px",
+    backgroundColor: "transparent",
+    marginTop: "1800px",
   },
   img: {
     width: "150px",

@@ -280,11 +280,13 @@ export default (props) => {
                           width: "150px",
                           height: "30px",
                           backgroundColor: "#B9ACE0",
-                          fontWeight: "bold",
-                          color: "#fff",
+                          fontColor: "#fff",
                         }}
                       >
-                        <Button onClick={appKeyPress} style={{ color: "#fff" }}>
+                        <Button
+                          onClick={appKeyPress}
+                          style={{ color: "B9ACE0" }}
+                        >
                           쪽지 보내기
                         </Button>
                         {/* <MessageIcon /> */}
@@ -311,6 +313,8 @@ export default (props) => {
               <Typography
                 variant="caption"
                 style={{
+                  marginLeft: "20px",
+                  marginBottom: "50px",
                   fontFamily: "NotoSansKR-Bold.otf",
                   fontSize: "25px",
                   fontWeight: "bold",
@@ -329,14 +333,14 @@ export default (props) => {
                     height="150px"
                     width="150px"
                     alt="profileImage"
-                    style={{ borderRadius: 10 }}
+                    style={{ borderRadius: 80 }}
                   />
                   <Typography
                     variant="body2"
                     style={{
                       marginBottom: "30px",
                       textAlign: "center",
-                      marginTop: "5px",
+                      marginTop: "20px",
                       fontWeight: 600,
                     }}
                   >
@@ -347,7 +351,12 @@ export default (props) => {
                   <Container>
                     <Row>
                       <Col xs="12" style={{ height: "75px" }}>
-                        <Typography>
+                        <Typography
+                          style={{
+                            fontFamily: "NotoSansKR-Bold.otf",
+                            fontWeight: "bold",
+                          }}
+                        >
                           소개
                           <br />
                           {ports["0"] &&
@@ -356,8 +365,18 @@ export default (props) => {
                               : ports["0"].intro)}
                         </Typography>
                       </Col>
-                      <Col xs="12" style={{ height: "75px" }}>
-                        <Typography>매너 룰러</Typography>
+                      <Col
+                        xs="12"
+                        style={{ height: "75px", fontWeight: "bold" }}
+                      >
+                        <Typography
+                          style={{
+                            fontFamily: "NotoSansKR-Bold.otf",
+                            fontWeight: "bold",
+                          }}
+                        >
+                          매너 룰러
+                        </Typography>
                         <Typography>{progressInstance}</Typography>
                       </Col>
                     </Row>
@@ -371,7 +390,7 @@ export default (props) => {
                 display="flex"
                 disableElevation
                 disabled={loading}
-                style={{ marginTop: "-20px" }}
+                style={{ marginLeft: "380px" }}
               >
                 <Button onClick={keyPressMove}>프로필 보러가기</Button>
               </Button>
@@ -388,7 +407,7 @@ export default (props) => {
           </Box>
           <Box className={classes.info} display="flex">
             <Typography variant="caption">작업실 위치 : </Typography>
-            <Typography variant="body2" style={{ marginBottom: "30px" }}>
+            <Typography variant="body2" style={{ marginBottom: "50px" }}>
               {props.job.location}
             </Typography>
           </Box>
@@ -397,30 +416,30 @@ export default (props) => {
             <Typography variant="caption">
               구하는 부엉이 어시 인원수 :{" "}
             </Typography>
-            <Typography variant="body2" style={{ marginBottom: "30px" }}>
+            <Typography variant="body2" style={{ marginBottom: "50px" }}>
               {props.job.nOfPeople}
             </Typography>
           </Box>
           <Box className={classes.info} display="flex">
             <Typography variant="caption">부엉이 어시 성별 : </Typography>
-            <Typography variant="body2" style={{ marginBottom: "30px" }}>
+            <Typography variant="body2" style={{ marginBottom: "50px" }}>
               {props.job.sex}
             </Typography>
           </Box>
 
           <Box className={classes.info} display="flex">
             <Typography variant="caption">프로젝트 설명 : </Typography>
-            <Typography variant="body2" style={{ marginBottom: "30px" }}>
+            <Typography variant="body2" style={{ marginBottom: "50px" }}>
               {props.job.description}
             </Typography>
           </Box>
           <Box className={classes.info} display="flex">
             <Typography variant="caption">부엉이 어시 구하는 날 : </Typography>
-            <Typography variant="body2" style={{ marginBottom: "30px" }}>
+            <Typography variant="body2" style={{ marginBottom: "50px" }}>
               {props.job.endDate}
             </Typography>
           </Box>
-          <Box ml={0.5} style={{ marginBottom: "30px" }}>
+          <Box ml={0.5} style={{ marginBottom: "50px" }}>
             <Typography variant="caption">부엉이 어시가 할 일 : </Typography>
             <Grid container alignItems="center">
               {props.job.skills &&
@@ -462,12 +481,10 @@ export default (props) => {
               job={props.job}
             />
             <Button
-              style={{ backgroundColor: "red" }}
+              style={{ backgroundColor: "#F9D598" }}
               variant="contained"
               onClick={() => {
-                if (
-                  window.confirm("Are you sure you wish to delete this post?")
-                ) {
+                if (window.confirm("정말로 삭제하시겠습니까?")) {
                   props.deleteJob(props.job);
                   closeModal();
                 }

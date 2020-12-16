@@ -342,7 +342,6 @@ export default (props) => {
                   min: 1,
                 },
               }}
-              label="Number of People"
               name="nOfPeople"
               value={jobDetails.nOfPeople}
               autoComplete="off"

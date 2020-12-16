@@ -8,8 +8,8 @@ import { firestore, db, app } from "../../firebase/config";
 import { ToastContainer, toast } from "react-toastify";
 import { Container } from "@material-ui/core";
 
-Survey.StylesManager.applyTheme("orange");
-// Survey.StylesManager.applyTheme("stone");
+// Survey.StylesManager.applyTheme("orange");
+Survey.StylesManager.applyTheme("stone");
 export default function Review(props) {
   const [isCompleted, setIsCompleted] = useState(false);
   const { currentUser } = useAuth();
@@ -157,7 +157,7 @@ export default function Review(props) {
     <Container
       style={{ marginTop: "200px", width: "1000px" }} // 1150px
     >
-      <div style={{ width: "1000px", margin: "0 auto" }}>
+      <div style={{ height: "800px", width: "1000px", margin: "0 auto" }}>
         {surveyRender}
         {onCompleteComponent}
       </div>

@@ -134,17 +134,17 @@ export default function MyPage() {
       >
         <Row>
           <Col xs="12">
-            <Paper style={{ height: "280px" }}>
+            <Paper style={{ height: "400px", borderRadius: 50 }}>
               <Container>
                 <Row>
                   <Col xs="4">
                     <img
                       src={currentUser.photoURL}
-                      height="150px"
-                      width="150px"
+                      height="200px"
+                      width="200px"
                       alt="profileImage"
                       style={{
-                        borderRadius: 10,
+                        borderRadius: 100,
                         marginLeft: "50px",
                         marginTop: "20px",
                       }}
@@ -158,12 +158,12 @@ export default function MyPage() {
                       fontWeight: "700",
                     }}
                   >
-                    {currentUser.displayName}
+                    {currentUser.displayName} 님
                   </Col>
                   <Col
                     xs="2"
                     style={{
-                      marginLeft: "-30px",
+                      marginLeft: "-40px",
                       lineHeight: "190px",
                       fontSize: "21px",
                       fontWeight: "400",
@@ -176,20 +176,27 @@ export default function MyPage() {
                   <Col
                     xs="3"
                     style={{
-                      marginLeft: "20px",
+                      marginLeft: "-10px",
                       lineHeight: "190px",
                       fontSize: "21px",
                       fontWeight: "400",
                       color: "gray",
                     }}
                   >
-                    <span>만족도 센치 : {now}cm</span>
+                    <span>만족도 센치 : {now} cm</span>
                   </Col>
                 </Row>
               </Container>
               <Container>
                 <Row>
-                  <Col xs="12">{progressInstance}</Col>
+                  <Col
+                    xs="12"
+                    style={{
+                      marginTop: "30px",
+                    }}
+                  >
+                    {progressInstance}
+                  </Col>
                 </Row>
               </Container>
             </Paper>
@@ -200,7 +207,7 @@ export default function MyPage() {
           <Grid item>
             <Button
               variant="contained"
-              color="primary"
+              color="#F9EFB8"
               disableElevation
               onClick={handleSubmit}
             >
@@ -212,7 +219,7 @@ export default function MyPage() {
 
       {/* 소개 및 포트폴리오 업로드 */}
       <Container
-        style={{ marginTop: "30px", width: "850px" }} // 1150px
+        style={{ marginTop: "80px", width: "850px" }} // 1150px
       >
         <Row>
           <Col xs="12">

@@ -37,7 +37,13 @@ export default (props) => {
       m={2}
       p={2}
       className={classes.wrapper}
-      style={{ backgroundColor: "#fff", borderRadius: "20" }}
+      style={{
+        marginTop: "50px",
+
+        backgroundColor: "#fff",
+        borderRadius: 20,
+        height: "400px",
+      }}
       onClick={props.open}
     >
       <Grid container>

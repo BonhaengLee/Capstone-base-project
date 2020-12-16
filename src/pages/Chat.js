@@ -132,13 +132,17 @@ export default function Chat(props) {
           <Col xs="12">
             <div style={{}}>
               {loadingChats ? (
-                <div className="spinner" color="white"></div>
+                <div className="spinner" color="white" width="1000px"></div>
               ) : (
                 ""
               )}
               <section
                 className="chat-container"
-                style={{ backgroundColor: "#fff", height: "1000px" }}
+                style={{
+                  backgroundColor: "#fff",
+                  width: "1000px",
+                  height: "500px",
+                }}
               >
                 <header className="chat-header">
                   <Link
@@ -159,7 +163,7 @@ export default function Chat(props) {
                   <div className="chat-settings" style={{ color: "#8355AB" }}>
                     <Button
                       variant="contained"
-                      color=""
+                      color="#F9EFB8"
                       disableElevation
                       style={{ color: "#8355AB" }}
                       onClick={appKeyPress}
