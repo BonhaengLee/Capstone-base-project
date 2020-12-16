@@ -289,18 +289,6 @@ export default (props) => {
               </Col>
             </Row>
           </Container>
-          <Box className={classes.info} display="flex">
-            <Typography
-              variant="body2"
-              style={{
-                marginTop: "80px",
-                marginLeft: "-200px",
-                fontFamily: "AppleSDGothicNeoEB.ttf",
-              }}
-            >
-              <Box style={{}}></Box>
-            </Typography>
-          </Box>
 
           <Box
             className={classes.info}
