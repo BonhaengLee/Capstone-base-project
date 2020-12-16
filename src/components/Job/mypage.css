@@ -6,3 +6,8 @@
   text-align: right;
   color: gray !important;
 }
+.chip {
+  height: 70px;
+  width: 70px;
+  border-radius: 80px;
+}

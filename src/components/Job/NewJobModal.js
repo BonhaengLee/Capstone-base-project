@@ -138,34 +138,9 @@ export default (props) => {
     e.persist();
     const filed = e.target.files[0];
     const storageRef = firebase.storage().ref();
-    // if (filed !== undefined) {
-    //   const fileRef = storageRef.child(filed.name);
-    //   await fileRef.put(filed);
-    //   setFileUrl(await fileRef.getDownloadURL());
-
-    //   for (let i = 0; i < e.target.files.length; i++) {
-    //     const newFile = e.target.files[i];
-    //     newFile["id"] = Math.random();
-    //     // add an "id" property to each File object
-    //     setFiles((prevState) => [...prevState, newFile]);
-    //     console.log(newFile);
-    //     console.log(files);
-    //   }
-    //   while (previewRef.current.firstChild) {
-    //     previewRef.current.removeChild(previewRef.current.firstChild);
-    //   }
     const fileRef = storageRef.child(filed.name);
     await fileRef.put(filed);
     setFileUrl(await fileRef.getDownloadURL());
-
-    // const curFiles = inputRef.current.files;
-    // if (curFiles.length === 0) {
-    //   const para = document.createElement("p");
-    //   para.textContent = "No files currently selected for upload";
-    //   previewRef.current.appendChild(para);
-    // } else {
-    //   const list = document.createElement("ol");
-    //   previewRef.current.appendChild(list);
     for (let i = 0; i < e.target.files.length; i++) {
       const newFile = e.target.files[i];
       newFile["id"] = Math.random();
@@ -177,10 +152,6 @@ export default (props) => {
     while (previewRef.current.firstChild) {
       previewRef.current.removeChild(previewRef.current.firstChild);
     }
-
-    // for (const file of curFiles) {
-    //   const listItem = document.createElement("div");
-    //   const para = document.createElement("p");
     const curFiles = inputRef.current.files;
     if (curFiles.length === 0) {
       const para = document.createElement("p");
@@ -190,21 +161,6 @@ export default (props) => {
       const list = document.createElement("ol");
       previewRef.current.appendChild(list);
 
-      // if (validFileType(file)) {
-      //   para.style.color = "black";
-      //   para.textContent = `${file.name},  ${returnFileSize(file.size)}.`;
-      //   const image = document.createElement("img");
-      //   image.style.height = "100px";
-      //   image.style.width = "100px";
-      //   image.src = URL.createObjectURL(file);
-
-      //   listItem.appendChild(image);
-      //   listItem.appendChild(para);
-      // } else {
-      //   para.textContent = `${file.name}: Not a valid file type. Update your selection.`;
-      //   para.style.color = "red";
-      //   listItem.appendChild(para);
-      // }
       for (const file of curFiles) {
         const listItem = document.createElement("div");
         const para = document.createElement("p");

@@ -26,6 +26,14 @@ import { useEffect } from "react";
 import { Col, Container, ProgressBar, Row } from "react-bootstrap";
 import { firestore } from "../../firebase/config";
 import "./mypage.css";
+import asi from "../../assets/temp/assi.PNG";
+import don from "../../assets/temp/money.PNG";
+import pan from "../../assets/temp/pan.PNG";
+import dom from "../../assets/temp/dom.PNG";
+import da from "../../assets/temp/da.PNG";
+import gi from "../../assets/temp/gi.PNG";
+import sim from "../../assets/temp/sim.PNG";
+import mo from "../../assets/temp/mo.PNG";
 
 export default (props) => {
   const classes = useStyles();
@@ -177,6 +185,22 @@ export default (props) => {
     />
   );
 
+  const skillImage = (skill) => {
+    if (skill === "도면작업") {
+      return <img src={dom} className="chip" />;
+    } else if ((skill = "모형작업")) {
+      return <img src={mo} className="chip" />;
+    } else if ((skill = "다이어그램")) {
+      return <img src={da} className="chip" />;
+    } else if ((skill = "판넬작업")) {
+      return <img src={pan} className="chip" />;
+    } else if ((skill = "심부름")) {
+      return <img src={sim} className="chip" />;
+    } else {
+      return <img src={gi} className="chip" />;
+    }
+  };
+
   useEffect(() => {
     setInputVal(props.job.userId);
     (async () => {
@@ -252,11 +276,15 @@ export default (props) => {
                 </Row>
                 <Row>
                   <Col style={{ height: "65px" }}>
-                    <Grid
-                      className={classes.openRewardButton}
-                      style={{ backgroundColor: "#B9ACE0" }}
-                    >
-                      {props.job.reward}
+                    <Grid>
+                      {props.job.reward === "돈" ? (
+                        <img
+                          src={don} //defaultImage
+                          className="chip"
+                        />
+                      ) : (
+                        <img src={asi} className="chip" />
+                      )}
                     </Grid>
                   </Col>
                 </Row>
@@ -436,8 +464,8 @@ export default (props) => {
             <Grid container alignItems="center">
               {props.job.skills &&
                 props.job.skills.map((skill) => (
-                  <Grid item key={skill} className={classes.openJobButton}>
-                    {skill}
+                  <Grid item key={skill}>
+                    {skillImage(skill)}
                   </Grid>
                 ))}
             </Grid>
@@ -496,38 +524,5 @@ const useStyles = makeStyles((theme) => ({
     "& > *": {
       margin: "4px",
     },
-  },
-  skillChip: {
-    margin: theme.spacing(1),
-    padding: theme.spacing(0.75),
-    fontSize: "14.5px",
-    borderRadius: "5px",
-    transition: ".3s",
-    fontWeight: 600,
-    backgroundColor: "#B9ACE0",
-    color: "#fff",
-  },
-  openJobButton: {
-    // backgroundColor: theme.palette.subColor.main,
-    margin: theme.spacing(0.5),
-    padding: theme.spacing(0.75),
-    fontSize: "14.5px",
-    borderRadius: "5px",
-    transition: ".3s",
-    fontWeight: 600,
-    color: "#fff",
-    backgroundColor: theme.palette.mainColor.main,
-  },
-  openRewardButton: {
-    fontSize: "14.5px",
-    height: "70px",
-    width: "70px",
-    borderRadius: "50%",
-    textAlign: "center",
-    lineHeight: "72px",
-    transition: ".3s",
-    fontWeight: 600,
-    color: "#fff",
-    backgroundColor: theme.palette.mainColor.main,
   },
 }));
