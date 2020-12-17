@@ -1,9 +1,8 @@
 import { firestore } from "../../firebase/config";
 import React, { lazy, useState, useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 import logo from "../../assets/logo.PNG";
-import talent from "../../assets/talent.PNG";
 import { AppBar, Button, IconButton, Paper, Toolbar } from "@material-ui/core";
 import NavSearchBar from "../SearchBar/NavSearchBar";
 
@@ -12,12 +11,8 @@ const Logout = lazy(() => import("../../auth/Logout"));
 
 export default function Nav() {
   const { currentUser } = useAuth();
-
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [customSearch, setCustomSearch] = useState(false);
-  const history = useHistory();
-  const [user, setUser] = useState(currentUser);
 
   const fetchJobs = async () => {
     setLoading(true);
@@ -34,28 +29,10 @@ export default function Nav() {
     setLoading(false);
   };
 
-  const fetchJobsCustom = async (jobSearch) => {
-    setLoading(true);
-    setCustomSearch(true);
-    const req = await firestore
-      .collection("jobs")
-      .orderBy("title", "asc")
-      .orderBy("postedOn", "desc")
-      .where("title", ">=", jobSearch.title)
-      .where("title", "<=", jobSearch.title + "\uf8ff")
-      .get();
-    const tempJobs = req.docs.map((job) => ({
-      ...job.data(),
-      id: job.id,
-      postedOn: job.data().postedOn.toDate(),
-    }));
-    setJobs(tempJobs);
-    setLoading(false);
-  };
-
   useEffect(() => {
     fetchJobs();
   }, [currentUser]);
+
   return (
     <div>
       <AppBar
@@ -66,7 +43,6 @@ export default function Nav() {
           <IconButton>
             <a
               href="/"
-              // className="navbar-brand"
               style={{
                 color: "#7563A7",
                 fontWeight: "500",
@@ -89,9 +65,7 @@ export default function Nav() {
                 color: "#7563A7",
                 fontWeight: "500",
               }}
-            ></a>
-
-            {/* 이거 버튼이 안바뀌어서 이미지로 넣었어요 별로면 지워두 됩니다*/}
+            />
           </Button>
           <Button
             variant="outline-light"

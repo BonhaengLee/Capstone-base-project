@@ -5,7 +5,6 @@ import { Col, Row, Container } from "react-bootstrap";
 
 export default (props) => {
   const classes = useStyles();
-  const job = props.job;
 
   function timeForToday(value) {
     const today = new Date();

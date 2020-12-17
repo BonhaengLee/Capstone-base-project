@@ -1,19 +1,17 @@
 import { Card } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 import { db } from "../firebase/config";
 import { Container, Row, Col } from "react-bootstrap";
 
 export default function Chatlist(props) {
-  const { currentUser, logout } = useAuth();
-  const history = useHistory();
+  const { currentUser } = useAuth();
   const [user, setUser] = useState(currentUser);
   const [inputVal, setInputVal] = useState("");
   const [error, setError] = useState(null);
   const [friendsList, setFriendsList] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [userId, setUserId] = useState("");
 
   async function getB() {
     setError(null);
@@ -78,21 +76,6 @@ export default function Chatlist(props) {
   //   }
   // }
 
-  async function emailToID(email) {
-    const snapshot = await db.ref("users").once("value");
-    for (const key in snapshot.val()) {
-      // skip loop if the property is from prototype
-      if (!snapshot.val().hasOwnProperty(key)) continue;
-      const obj = snapshot.val()[key];
-      for (const prop in obj) {
-        // skip loop if the property is from prototype
-        if (!obj.hasOwnProperty(prop)) continue;
-        if (prop === "email" && obj[prop] === email) return obj["uid"];
-      }
-    }
-    return null;
-  }
-
   // async function makeFriends(currentUserID, friendID) {
   //   const currentUserObj = await (
   //     await db.ref(`users/${currentUserID}`).once("value")
@@ -142,13 +125,11 @@ export default function Chatlist(props) {
   //   else return `${ID2}_${ID1}`;
   // }
 
-  const { match, location } = props;
+  const { location } = props;
 
   return (
     <Container>
-      <Container
-        style={{ marginTop: "200px", width: "500px" }} // 1150px
-      >
+      <Container style={{ marginTop: "200px", width: "500px" }}>
         <Row>
           <Col xs="12">
             <div style={{}}>

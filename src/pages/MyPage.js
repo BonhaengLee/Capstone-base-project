@@ -1,19 +1,16 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Grid, Paper } from "@material-ui/core";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { Col, Container, ProgressBar, Row } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
-import "./mypage.css";
+import "./myPage.css";
 import ReviewGrid from "../components/ReviewSystem/ReviewGrid";
 import PortfolioGrid from "../components/Portfolio/PortfolioGrid";
-import { firestore, firebase, app } from "../firebase/config";
-import { v4 as uuid } from "uuid";
+import { firestore, firebase } from "../firebase/config";
 
 export default function MyPage() {
   const { currentUser } = useAuth();
   const history = useHistory();
-  const [jobs, setJobs] = useState([]);
-  const [port, setPort] = useState([]);
   const [locTitle, setLocTitle] = useState([]);
   const [cal, setCal] = useState(0);
   const now = cal;
@@ -203,10 +200,10 @@ export default function MyPage() {
           </Col>
         </Row>
 
-        <Grid item xs container direction="row">
+        <Grid item xs container direction="row-reverse">
           <Grid item>
             <Button
-              variant="contained"
+              variant="outlined"
               color="#F9EFB8"
               disableElevation
               onClick={handleSubmit}

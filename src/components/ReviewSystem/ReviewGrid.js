@@ -7,7 +7,6 @@ import ButtonBase from "@material-ui/core/ButtonBase";
 import ac from "../../assets/ac.jpg";
 import { firestore, firebase, app } from "../../firebase/config";
 import styled from "styled-components";
-import { v4 as uuid } from "uuid";
 import { useAuth } from "../../contexts/AuthContext";
 
 const useStyles = makeStyles((theme) => ({
@@ -35,7 +34,7 @@ export default function ReviewGrid(props) {
   const { currentUser } = useAuth();
   const uId = props.user;
   const uname = props.uname;
-  const uPhoto = props.uPhoto;
+  // const uPhoto = props.uPhoto;
   const email = props.email;
 
   useEffect(() => {
@@ -49,7 +48,6 @@ export default function ReviewGrid(props) {
 
   const fetchReviews = async () => {
     setLoading(true);
-    const id = uuid();
     if (uId === undefined) {
       const req = await firestore
         .collection("reviews")
@@ -63,11 +61,11 @@ export default function ReviewGrid(props) {
       tempReviews.map((x, i) => {
         if (JSON.parse(x["0"]).satisfaction === 1) {
           st -= 0.5;
-        } else if (JSON.parse(x["0"]).satisfaction == 2) {
+        } else if (JSON.parse(x["0"]).satisfaction === 2) {
           st -= 0.25;
-        } else if (JSON.parse(x["0"]).satisfaction == 3) {
+        } else if (JSON.parse(x["0"]).satisfaction === 3) {
           st -= 0;
-        } else if (JSON.parse(x["0"]).satisfaction == 4) {
+        } else if (JSON.parse(x["0"]).satisfaction === 4) {
           st += 0.25;
         } else {
           st += 0.5;
@@ -103,11 +101,11 @@ export default function ReviewGrid(props) {
       tempReviews.map((x, i) => {
         if (JSON.parse(x["0"]).satisfaction === 1) {
           st -= 0.5;
-        } else if (JSON.parse(x["0"]).satisfaction == 2) {
+        } else if (JSON.parse(x["0"]).satisfaction === 2) {
           st -= 0.25;
-        } else if (JSON.parse(x["0"]).satisfaction == 3) {
+        } else if (JSON.parse(x["0"]).satisfaction === 3) {
           st -= 0;
-        } else if (JSON.parse(x["0"]).satisfaction == 4) {
+        } else if (JSON.parse(x["0"]).satisfaction === 4) {
           st += 0.25;
         } else {
           st += 0.5;

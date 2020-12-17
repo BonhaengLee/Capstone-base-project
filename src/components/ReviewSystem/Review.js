@@ -2,10 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import * as Survey from "survey-react";
 import "survey-react/survey.css";
-import { v4 as uuid } from "uuid";
 import { useAuth } from "../../contexts/AuthContext";
 import { firestore, db, app } from "../../firebase/config";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import { Container } from "@material-ui/core";
 
 // Survey.StylesManager.applyTheme("orange");
@@ -18,7 +17,6 @@ export default function Review(props) {
   const [uName, setuName] = useState("");
   const [uPhoto, setuPhoto] = useState("");
   const [email, setEmail] = useState("");
-  var emailtoJob = "";
 
   async function TraderProfile() {
     try {
@@ -29,7 +27,6 @@ export default function Review(props) {
           setuName(snapshot.val().uname);
           setuPhoto(snapshot.val().photoURL);
           setEmail(snapshot.val().email);
-          emailtoJob = snapshot.val().email;
         });
     } catch (err) {
       console.log("traderProfile에러");
@@ -40,7 +37,6 @@ export default function Review(props) {
 
   async function putScore() {
     try {
-      const id = uuid();
       const req = await firestore
         .collection("reviews")
         .where("TraderId", "==", props.match.params.ID)
@@ -55,11 +51,11 @@ export default function Review(props) {
       tempReviews.map((x, i) => {
         if (JSON.parse(x["0"]).satisfaction === 1) {
           st -= 0.5;
-        } else if (JSON.parse(x["0"]).satisfaction == 2) {
+        } else if (JSON.parse(x["0"]).satisfaction === 2) {
           st -= 0.25;
-        } else if (JSON.parse(x["0"]).satisfaction == 3) {
+        } else if (JSON.parse(x["0"]).satisfaction === 3) {
           st -= 0;
-        } else if (JSON.parse(x["0"]).satisfaction == 4) {
+        } else if (JSON.parse(x["0"]).satisfaction === 4) {
           st += 0.25;
         } else {
           st += 0.5;
@@ -98,9 +94,6 @@ export default function Review(props) {
   var st = 0;
 
   const pushF = async (details) => {
-    // const id = uuid();
-    const id = uuid();
-
     await firestore
       .collection("reviews")
       .add({

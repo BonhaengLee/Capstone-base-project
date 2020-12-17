@@ -18,7 +18,7 @@ const Nav = lazy(() => import("./components/Header/Nav"));
 const SearchPage = lazy(() => import("./pages/Search.page"));
 const ReviewPage = lazy(() => import("./components/ReviewSystem/Review"));
 const MyPage = lazy(() => import("./pages/MyPage"));
-const PortPage = lazy(() => import("./pages/Port.page"));
+const PortPage = lazy(() => import("./pages/UpdatePort.page"));
 const TraderMyPage = lazy(() => import("./pages/TraderMyPage"));
 
 function App(props) {

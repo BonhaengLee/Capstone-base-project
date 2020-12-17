@@ -6,7 +6,7 @@ import theme from "../theme/theme";
 import { ThemeProvider } from "@material-ui/core";
 
 export default function SearchPage(props) {
-  const { match, location } = props;
+  const { match } = props;
   const [inputVal, setInputVal] = useState("");
   const [jobs, setJobs] = useState([]);
   const [loading, setLoading] = useState(true);

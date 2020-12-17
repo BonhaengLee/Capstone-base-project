@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import {
   Box,
   Button,
-  CircularProgress,
   Dialog,
   DialogActions,
   DialogContent,
@@ -12,28 +11,25 @@ import {
   makeStyles,
   Typography,
 } from "@material-ui/core";
-import {
-  Close as CloseIcon,
-  MailOutline as MessageIcon,
-} from "@material-ui/icons";
+import { Close as CloseIcon } from "@material-ui/icons";
 import * as dateFns from "date-fns";
 import { useAuth } from "../../contexts/AuthContext";
 import UpdateJobModal from "./UpdateJobModal";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import defaultImage from "../../assets/sampleImage.PNG";
 import { db } from "../../firebase/config";
 import { useEffect } from "react";
 import { Col, Container, ProgressBar, Row } from "react-bootstrap";
 import { firestore } from "../../firebase/config";
-import "./mypage.css";
-import asi from "../../assets/temp/assi.PNG";
-import don from "../../assets/temp/money.PNG";
-import pan from "../../assets/temp/pan.PNG";
-import dom from "../../assets/temp/dom.PNG";
-import da from "../../assets/temp/da.PNG";
-import gi from "../../assets/temp/gi.PNG";
-import sim from "../../assets/temp/sim.PNG";
-import mo from "../../assets/temp/mo.PNG";
+import "./jobModal.css";
+// import asi from "../../assets/temp/assi.PNG";
+// import don from "../../assets/temp/money.PNG";
+// import pan from "../../assets/temp/pan.PNG";
+// import dom from "../../assets/temp/dom.PNG";
+// import da from "../../assets/temp/da.PNG";
+// import gi from "../../assets/temp/gi.PNG";
+// import sim from "../../assets/temp/sim.PNG";
+// import mo from "../../assets/temp/mo.PNG";
 
 export default (props) => {
   const classes = useStyles();
@@ -185,21 +181,21 @@ export default (props) => {
     />
   );
 
-  const skillImage = (skill) => {
-    if (skill === "도면작업") {
-      return <img src={dom} className="chip" />;
-    } else if ((skill = "모형작업")) {
-      return <img src={mo} className="chip" />;
-    } else if ((skill = "다이어그램")) {
-      return <img src={da} className="chip" />;
-    } else if ((skill = "판넬작업")) {
-      return <img src={pan} className="chip" />;
-    } else if ((skill = "심부름")) {
-      return <img src={sim} className="chip" />;
-    } else {
-      return <img src={gi} className="chip" />;
-    }
-  };
+  // const skillImage = (skill) => {
+  //   if (skill === "도면작업") {
+  //     return <img src={dom} className="chip" />;
+  //   } else if ((skill = "모형작업")) {
+  //     return <img src={mo} className="chip" />;
+  //   } else if ((skill = "다이어그램")) {
+  //     return <img src={da} className="chip" />;
+  //   } else if ((skill = "판넬작업")) {
+  //     return <img src={pan} className="chip" />;
+  //   } else if ((skill = "심부름")) {
+  //     return <img src={sim} className="chip" />;
+  //   } else {
+  //     return <img src={gi} className="chip" />;
+  //   }
+  // };
 
   useEffect(() => {
     setInputVal(props.job.userId);
@@ -275,14 +271,15 @@ export default (props) => {
                 <Row>
                   <Col style={{ height: "65px" }}>
                     <Grid>
-                      {props.job.reward === "돈" ? (
+                      {props.job.reward}
+                      {/* {props.job.reward === "돈" ? (
                         <img
                           src={don} //defaultImage
                           className="chip"
                         />
                       ) : (
                         <img src={asi} className="chip" />
-                      )}
+                      )} */}
                     </Grid>
                   </Col>
                 </Row>
@@ -463,7 +460,8 @@ export default (props) => {
               {props.job.skills &&
                 props.job.skills.map((skill) => (
                   <Grid item key={skill}>
-                    {skillImage(skill)}
+                    {/* {skillImage(skill)} */}
+                    {skill}
                   </Grid>
                 ))}
             </Grid>

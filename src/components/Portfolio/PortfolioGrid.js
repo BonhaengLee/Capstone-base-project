@@ -1,13 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import Grid from "@material-ui/core/Grid";
-import {
-  Box,
-  Button,
-  FilledInput,
-  makeStyles,
-  Typography,
-} from "@material-ui/core";
-import { useAuth } from "../../contexts/AuthContext";
+import { Box, Button, FilledInput, makeStyles } from "@material-ui/core";
 import uploadFilesIcon from "../../assets/uploadFilesIcon.png";
 import { firebase } from "../../firebase/config";
 
@@ -66,7 +59,6 @@ const useStyles = makeStyles((theme) => ({
 export default function PortfolioGrid(props) {
   const portDetails = props.portDetails;
   const classes = useStyles();
-  const { currentUser } = useAuth();
   const inputRef = useRef();
   const previewRef = useRef();
   // const [fileUrl, setFileUrl] = useState(null);

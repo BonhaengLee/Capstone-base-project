@@ -1,11 +1,10 @@
-import { Box, Button, Grid, makeStyles } from "@material-ui/core";
+import { Box, makeStyles } from "@material-ui/core";
 import React from "react";
 import { Col, Row, Container } from "react-bootstrap";
 import clickImage from "../../assets/click.png";
 import mainImage from "../../assets/mainImage.png";
 
 export default (props) => {
-  const classes = useStyles();
   return (
     <Box pt={20} pb={10} bgcolor="transparent">
       <img

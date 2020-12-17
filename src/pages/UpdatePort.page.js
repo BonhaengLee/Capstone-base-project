@@ -1,10 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Button, Grid, Paper } from "@material-ui/core";
-import { Link, useHistory } from "react-router-dom";
-import { Col, Container, ProgressBar, Row } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { Button, Grid } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
+import { Col, Container, Row } from "react-bootstrap";
 import { useAuth } from "../contexts/AuthContext";
-import "./mypage.css";
-import ReviewGrid from "../components/ReviewSystem/ReviewGrid";
+import "./myPage.css";
 import PortfolioGrid from "../components/Portfolio/PortfolioGrid";
 import { firestore, firebase, app } from "../firebase/config";
 import { v4 as uuid } from "uuid";
