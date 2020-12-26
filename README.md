@@ -1,12 +1,11 @@
-## 아주대학교 다학제 캡스톤 디자인 
-## 설계실요정팀
-## 재능교환 웹사이트
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
+## 아주대학교 다학제 캡스톤 디자인 설계실요정팀
+## 재능교환 웹사이트 설계실 부엉이
 
 In the project directory, you can run:
+
+### npm install -> npm start
+
+----------------------------
 
 ### `yarn start`
 
